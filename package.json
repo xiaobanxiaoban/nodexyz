@@ -1,0 +1,26 @@
+{
+  "name": "nodexyz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaobanxiaoban/nodexyz.git"
+  },
+  "keywords": [
+    "raspberry",
+    "nodejs",
+    "adxl345",
+    "webgl",
+    "websocket"
+  ],
+  "author": "xiaoban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaobanxiaoban/nodexyz/issues"
+  },
+  "homepage": "https://github.com/xiaobanxiaoban/nodexyz"
+}

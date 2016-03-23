@@ -1,8 +1,8 @@
 {
   "name": "nodexyz",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "使用树莓派和陀螺仪，利用webgl控制网页上的图像",
+  "main": "bin/www",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

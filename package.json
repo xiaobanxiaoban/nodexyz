@@ -1,26 +1,40 @@
 {
-  "name": "nodexyz",
-  "version": "1.0.0",
-  "description": "使用树莓派和陀螺仪，利用webgl控制网页上的图像",
-  "main": "bin/www",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaobanxiaoban/nodexyz.git"
-  },
-  "keywords": [
-    "raspberry",
-    "nodejs",
-    "adxl345",
-    "webgl",
-    "websocket"
-  ],
-  "author": "xiaoban",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/xiaobanxiaoban/nodexyz/issues"
-  },
-  "homepage": "https://github.com/xiaobanxiaoban/nodexyz"
+	"name": "nodexyz",
+	"version": "1.0.0",
+	"description": "使用树莓派和陀螺仪，利用webgl控制网页上的图像",
+	"main": "bin/www",
+	"scripts": {
+		"start": "node ./bin/www"
+	},
+	"dependencies": {
+		"body-parser": "~1.13.2",
+		"cookie-parser": "~1.3.5",
+		"debug": "~2.2.0",
+		"ejs": "~2.3.3",
+		"express": "~4.13.1",
+		"morgan": "~1.6.1",
+		"serve-favicon": "~2.3.0",
+		"websocket": "*",
+		"nodejs-websocket": "*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xiaobanxiaoban/nodexyz.git"
+	},
+	"keywords": [
+		"raspberry",
+		"nodejs",
+		"adxl345",
+		"webgl",
+		"websocket"
+	],
+	"author": {
+		"name": "班鹏飞",
+		"mail": "xiaobanxiaoban@qq.com"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/xiaobanxiaoban/nodexyz/issues"
+	},
+	"homepage": "https://github.com/xiaobanxiaoban/nodexyz"
 }

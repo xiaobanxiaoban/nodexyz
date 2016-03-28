@@ -8,6 +8,11 @@
     <script src="/javascripts/xyz.js"></script>
     <script src="/javascripts/jet.js"></script>
     <style type="text/css">
+        * {
+            padding: 0px;
+            margin: 0px
+        }
+
         input {
             width: 100px;
         }
@@ -19,11 +24,13 @@
 
         table {
             border-collapse: inherit;
-            float: left;
-        }
-        div{
             float: right;
+        }
+
+        div {
+            float: left;
             border: 1px solid greenyellow;
+            width: 500px;height: 500px;
         }
     </style>
 </head>
@@ -75,14 +82,17 @@
     <tr>
         <th>accelerometer.acceleration</th>
         <td><input type="text" name="accelerometer_acceleration"/></td>
+        <td>加速</td>
     </tr>
     <tr>
         <th>accelerometer.inclination</th>
         <td><input type="text" name="accelerometer_inclination"/></td>
+        <td>倾向,切坡</td>
     </tr>
     <tr>
         <th>accelerometer.orientation</th>
         <td><input type="text" name="accelerometer_orientation"/></td>
+        <td>方向，定位，取向</td>
     </tr>
     <tr>
         <th rowspan="13">陀螺仪</th>
@@ -142,6 +152,6 @@
         <td>是否校正</td>
     </tr>
 </table>
-<div style="width: 400px;height: 400px;"></div>
+<div></div>
 </body>
 </html>

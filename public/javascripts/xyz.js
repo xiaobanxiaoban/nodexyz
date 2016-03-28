@@ -14,8 +14,14 @@ if(window.WebSocket){
 		for(var x in imu){
 			for(var y in imu[x]){
 				var value=imu[x][y];
-				if(!isNaN(value) && typeof value !="boolean"){
-					value=parseFloat(value).toFixed(2);
+				if(typeof value=="object"){
+					for(var z in value){
+						$("[name='"+x+"_"+y+"_"+z+"']").val(value[z]);
+					}
+					continue;
+				}
+				if(typeof value=="number"){
+					value=parseFloat(value).toFixed(4);
 				}
 				$("[name='"+x+"_"+y+"']").val(value);
 			}

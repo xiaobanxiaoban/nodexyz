@@ -1,52 +1,103 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
 var app = require('../app');
 var debug = require('debug')('untitled:server');
 var http = require('http');
+var five = require('johnny-five');
+var raspi = require('raspi-io');
+var board = new five.Board({
+    io: new raspi()
+});
 
-/**
- * Get port from environment and store in Express.
- */
+board.on("ready", function () {
+    var imu = new five.IMU({
+        controller: "MPU6050"
+    });
+    var webSocketConns = [];
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+    var ws = require("nodejs-websocket");
+    var server = ws.createServer(function (conn) {
+        webSocketConns.push(conn);
+        conn.on("text", function (str) {
+            console.log("收到的来自客户端的信息为:" + str)
+        })
+        conn.on("close", function (code, reason) {
+            webSocketConns=[];
+        });
+        conn.on("error", function (code, reason) {
+            console.log("异常关闭:"+reason)
+        });
+    }).listen(8001);
+    imu.on("change", function () {
+        for (var i = 0; i < webSocketConns.length; i++) {
+            webSocketConns[i].sendText(JSON.stringify({
+                temperature: {
+                    celsius: this.temperature.celsius,
+                    fahrenheit: this.temperature.fahrenheit,
+                    kelvin: this.temperature.kelvin
+                },
+                accelerometer: {
+                    x: this.accelerometer.x,
+                    y: this.accelerometer.y,
+                    z: this.accelerometer.z,
+                    pitch: this.accelerometer.pitch,
+                    roll: this.accelerometer.roll,
+                    acceleration: this.accelerometer.acceleration,
+                    inclination: this.accelerometer.inclination,
+                    orientation: this.accelerometer.orientation
+                },
+                gyro: {
+                    x: this.gyro.x,
+                    y: this.gyro.y,
+                    z: this.gyro.z,
+                    pitch: this.gyro.pitch,
+                    roll: this.gyro.roll,
+                    yaw: this.gyro.yaw,
+                    rate: this.gyro.rate,
+                    isCalibrated: this.gyro.isCalibrated
+                }
+            }));
+        }
+    });
 
-/**
- * Create HTTP server.
- */
+    var port = normalizePort(process.env.PORT || '3000');
+    app.set('port', port);
 
-var server = http.createServer(app);
+    var server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+    server.listen(port);
+    server.on('error', onError);
+    server.on('listening', onListening);
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+
+    function onListening() {
+        var addr = server.address();
+        var bind = typeof addr === 'string'
+            ? 'pipe ' + addr
+            : 'port ' + addr.port;
+        debug('Listening on ' + bind);
+    }
+});
+
 
 /**
  * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+    var port = parseInt(val, 10);
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
 
-  return false;
+    return false;
 }
 
 /**
@@ -54,37 +105,25 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
 }

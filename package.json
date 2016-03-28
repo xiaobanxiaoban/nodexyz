@@ -16,6 +16,7 @@
 		"serve-favicon": "~2.3.0",
 		"websocket": "*",
 		"johnny-five": "*",
+		"raspi-io": "*",
 		"nodejs-websocket": "*"
 	},
 	"repository": {

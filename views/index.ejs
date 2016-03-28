@@ -3,13 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
     <script src="/javascripts/components/jquery-1.10.2.js"></script>
     <script src="/javascripts/xyz.js"></script>
+    <style type="text/css">
+        input {
+            length: 200px;
+        }
+
+        th, td {
+            border: 1px solid red;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: inherit;
+        }
+
+    </style>
 </head>
 <body>
-    <input type="text" value="" name="text"/>
-    <input type="button" value="测试" id="btn" />
-    <pre id="date"></pre>
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <th>temperature.celsius</th>
+        <td><input type="text" name="temperature_celsius"/></td>
+    </tr>
+    <tr>
+        <th>temperature.fahrenheit</th>
+        <td><input type="text" name="temperature_fahrenheit"/></td>
+    </tr>
+    <tr>
+        <th>temperature.kelvin</th>
+        <td><input type="text" name="temperature_kelvin"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.x</th>
+        <td><input type="text" name="accelerometer_x"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.y</th>
+        <td><input type="text" name="accelerometer_y"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.z</th>
+        <td><input type="text" name="accelerometer_z"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.pitch</th>
+        <td><input type="text" name="accelerometer_pitch"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.roll</th>
+        <td><input type="text" name="accelerometer_roll"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.acceleration</th>
+        <td><input type="text" name="accelerometer_acceleration"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.inclination</th>
+        <td><input type="text" name="accelerometer_inclination"/></td>
+    </tr>
+    <tr>
+        <th>accelerometer.orientation</th>
+        <td><input type="text" name="accelerometer_orientation"/></td>
+    </tr>
+    <tr>
+        <th>gyro.x</th>
+        <td><input type="text" name="gyro_x"/></td>
+    </tr>
+    <tr>
+        <th>gyro.y</th>
+        <td><input type="text" name="gyro_y"/></td>
+    </tr>
+    <tr>
+        <th>gyro.z</th>
+        <td><input type="text" name="gyro_z"/></td>
+    </tr>
+    <tr>
+        <th>gyro.pitch</th>
+        <td><input type="text" name="gyro_pitch"/></td>
+    </tr>
+    <tr>
+        <th>gyro.roll</th>
+        <td><input type="text" name="gyro_roll"/></td>
+    </tr>
+    <tr>
+        <th>gyro.yaw</th>
+        <td><input type="text" name="gyro_yaw"/></td>
+    </tr>
+    <tr>
+        <th>gyro.rate</th>
+        <td><input type="text" name="gyro_rate"/></td>
+    </tr>
+    <tr>
+        <th>gyro.isCalibrated</th>
+        <td><input type="text" name="gyro_isCalibrated"/></td>
+    </tr>
+</table>
 </body>
 </html>

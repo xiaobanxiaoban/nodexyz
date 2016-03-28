@@ -8,7 +8,7 @@
     <script src="/javascripts/xyz.js"></script>
     <style type="text/css">
         input {
-            length: 200px;
+            width: 100px;
         }
 
         th, td {
@@ -24,18 +24,27 @@
 </head>
 <body>
 <table cellpadding="0" cellspacing="0">
+    <colgroup>
+        <col style="width: 50px">
+        <col style="width: 150px">
+        <col style="width: 100px">
+        <col style="width: 150px">
+    </colgroup>
     <tr>
         <th rowspan="3">温度</th>
         <th>temperature.celsius</th>
         <td><input type="text" name="temperature_celsius"/></td>
+        <td>摄氏度</td>
     </tr>
     <tr>
         <th>temperature.fahrenheit</th>
         <td><input type="text" name="temperature_fahrenheit"/></td>
+        <td>华氏度</td>
     </tr>
     <tr>
         <th>temperature.kelvin</th>
         <td><input type="text" name="temperature_kelvin"/></td>
+        <td>绝对温度</td>
     </tr>
     <tr>
         <th rowspan="8">加速度计</th>
@@ -71,7 +80,7 @@
         <td><input type="text" name="accelerometer_orientation"/></td>
     </tr>
     <tr>
-        <th rowspan="13">角度</th>
+        <th rowspan="13">陀螺仪</th>
         <th>gyro.x</th>
         <td><input type="text" name="gyro_x"/></td>
     </tr>
@@ -86,6 +95,7 @@
     <tr>
         <th>gyro.pitch.rate</th>
         <td><input type="text" name="gyro_pitch_rate"/></td>
+        <td rowspan="2">pitch是围绕X轴旋转，也叫做俯仰角</td>
     </tr>
     <tr>
         <th>gyro.pitch.angle</th>
@@ -94,6 +104,7 @@
     <tr>
         <th>gyro.roll.rate</th>
         <td><input type="text" name="gyro_roll_rate"/></td>
+        <td rowspan="2">roll是围绕Z轴旋转，也叫翻滚角</td>
     </tr>
     <tr>
         <th>gyro.roll.angle</th>
@@ -102,6 +113,7 @@
     <tr>
         <th>gyro.yaw.rate</th>
         <td><input type="text" name="gyro_yaw_rate"/></td>
+        <td rowspan="2">yaw是围绕Y轴旋转，也叫偏航角</td>
     </tr>
     <tr>
         <th>gyro.yaw.angle</th>
@@ -122,6 +134,7 @@
     <tr>
         <th>gyro.isCalibrated</th>
         <td><input type="text" name="gyro_isCalibrated"/></td>
+        <td>是否校正</td>
     </tr>
 </table>
 </body>

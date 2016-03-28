@@ -30,7 +30,7 @@ if(window.WebSocket){
 	}
 }else{
 	alert("该浏览器不支持websocket，无法支持本程序，请换用其他的浏览器，推荐Chrome浏览器！");
-	throw "browser not supported";
+	throw new Error("browser not supported!");
 }
 
 $(function(){

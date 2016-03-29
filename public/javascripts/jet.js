@@ -98,14 +98,14 @@ var initLine = function () {
 var createLine = function (x, y, z, color) {
 	{
 		var geometry = new THREE.Geometry();
-		var material = new THREE.LineBasicMaterial({ vertexColors: true });
+		var material = new THREE.LineBasicMaterial({ vertexColors: true,lineWidth:200 });
 		var color1 = new THREE.Color(color), color2 = new THREE.Color(color);
 		var p1 = new THREE.Vector3(0, 0, 0);
 		var p2 = new THREE.Vector3(x, y, z);
 		geometry.vertices.push(p1);
 		geometry.vertices.push(p2);
 		geometry.colors.push(color1, color2);
-		var line = new THREE.Line(geometry, material, THREE.LinePieces);
+		var line = new THREE.Line(geometry, material, THREE.LineSegments);
 		scene.add(line);
 	}
 

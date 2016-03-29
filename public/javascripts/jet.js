@@ -36,7 +36,7 @@ $(function () {
 		displayObject.rotation.set(x, y, z);
 		renderer.render(scene, camera);
 	}
-	setInterval(move, 1);
+	setInterval(move, 3);
 });
 
 function initThree() {
@@ -65,7 +65,7 @@ function initScene() {
 //设置物体
 function initObject() {
 
-	var geometry = new THREE.BoxGeometry(15, 12, 3);
+	var geometry = new THREE.BoxGeometry(15, 3, 12);
 	var faceColors = [ 0x5348B7,0x1BA261, 0x05E6FC, 0xDE5B25, 0xFFFFD7, 0xFF0000];
 	for (var i = 0; i < geometry.faces.length; i += 2) {
 		geometry.faces[ i ].color.setHex(faceColors[i / 2]);
@@ -82,7 +82,7 @@ function initObject() {
 //			wireframe: true
 //		})
 //	);
-	displayObject.position.set(20, 20, 20);
+	displayObject.position.set(20, 15, 20);
 	scene.add(displayObject);
 }
 

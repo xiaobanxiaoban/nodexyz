@@ -14,9 +14,26 @@ $(function () {
 	renderer.clear();
 	renderer.render(scene, camera);
 	var i = 0;
+	var j=0;
 	var move = function () {
-		var angle = 3.1415926 / 180 * i++;
-		displayObject.rotation.set(angle, angle, angle);
+		if(i==361){
+			i=0;
+			j++;
+		}
+		var angle = Math.PI / 180 * i++;
+		if(j==3){
+			j=0;
+		}
+		if(j==0){
+			x=angle;y=0,z=0;
+		}
+		if(j==1){
+			x=0;y=angle,z=0;
+		}
+		if(j==2){
+			x=0;y=0,z=angle;
+		}
+		displayObject.rotation.set(x, y, z);
 		renderer.render(scene, camera);
 	}
 	setInterval(move, 1);
@@ -37,8 +54,8 @@ function initCamera() {
 	 * fov, aspect, near, far
 	 */
 	camera = new THREE.PerspectiveCamera(120, sceneWidth / sceneHeight, -15, 10);
-	camera.position.set(8, 8, 30);
-	camera.lookAt(new THREE.Vector3(8, 8, 2));
+	camera.position.set(20, 20, 50);
+	camera.lookAt(new THREE.Vector3(20, 20, 2));
 }
 
 function initScene() {
@@ -48,8 +65,8 @@ function initScene() {
 //设置物体
 function initObject() {
 
-	var geometry = new THREE.BoxGeometry(9, 6, 4);
-	var faceColors = [0xDE5B25, 0x1BA261, 0x05E6FC, 0xFFFFD7, 0xFF0000, 0x5348B7];
+	var geometry = new THREE.BoxGeometry(15, 12, 3);
+	var faceColors = [ 0x5348B7,0x1BA261, 0x05E6FC, 0xDE5B25, 0xFFFFD7, 0xFF0000];
 	for (var i = 0; i < geometry.faces.length; i += 2) {
 		geometry.faces[ i ].color.setHex(faceColors[i / 2]);
 		geometry.faces[ i + 1 ].color.setHex(faceColors[i / 2]);
@@ -65,7 +82,7 @@ function initObject() {
 //			wireframe: true
 //		})
 //	);
-	displayObject.position.set(-4, 5, 5);
+	displayObject.position.set(20, 20, 20);
 	scene.add(displayObject);
 }
 

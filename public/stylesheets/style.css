@@ -1,26 +1,30 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: '微软雅黑';
+}
+
+input {
+    width: 100px;
+}
+
+th, td {
+    border: 1px solid red;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    float: right;
+}
+
+div {
+    float: left;
+    border: 1px solid greenyellow;
+    width: 500px;
+    height: 500px;
+}
+
 body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-    color: #00B7FF;
-}
-
-.kuang {
-    text-align: center;
-    margin-top: 200px;
-}
-
-#mess {
-    text-align: center
-}
-
-.value {
-    width: 200px;
-    height: 200px;
-    border: 1px solid;
-    text-align: center;
-    line-height: 200px;
-    display: inline-block;
+    padding: 10px;
 }

@@ -1,6 +1,6 @@
 var initSocket=function(){
 	if (window.WebSocket) {
-		var ws = new WebSocket('ws://192.168.1.1:8001');
+		var ws = new WebSocket('ws://192.168.0.106:8001');
 		ws.onopen = function (e) {
 			console.log("连接服务器成功");
 		}
@@ -27,7 +27,15 @@ var initSocket=function(){
 					$("[name='" + x + "_" + y + "']").val(value);
 				}
 			}
-			$("#date").text();
+
+			//displayObject.rotation.set(imu.gyro.pitch.angle*imu.gyro.pitch.rate,imu.gyro.roll.angle*imu.gyro.roll.rate,imu.gyro.yaw.angle*imu.gyro.yaw.rate);
+			displayObject.rotation.set(imu.gyro.pitch.angle,imu.gyro.roll.angle,0);
+			//displayObject.rotation.set(imu.gyro.rate.x,imu.gyro.rate.y,imu.gyro.rate.z);
+			//displayObject.rotation.set(imu.gyro.pitch.rate,imu.gyro.roll.rate,imu.gyro.yaw.rate);
+			//displayObject.rotation.set(imu.accelerometer.x,imu.accelerometer.y,imu.accelerometer.z);
+			//displayObject.rotation.set(imu.gyro.x,imu.gyro.y.gyro.z);
+			renderer.render(scene, camera);
+
 		}
 	} else {
 		alert("该浏览器不支持websocket，无法支持本程序，请换用其他的浏览器，推荐Chrome浏览器！");

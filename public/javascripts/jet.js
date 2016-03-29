@@ -13,30 +13,30 @@ $(function () {
 	initObject();
 	renderer.clear();
 	renderer.render(scene, camera);
-	var i = 0;
-	var j=0;
-	var move = function () {
-		if(i==361){
-			i=0;
-			j++;
-		}
-		var angle = Math.PI / 180 * i++;
-		if(j==3){
-			j=0;
-		}
-		if(j==0){
-			x=angle;y=0,z=0;
-		}
-		if(j==1){
-			x=0;y=angle,z=0;
-		}
-		if(j==2){
-			x=0;y=0,z=angle;
-		}
-		displayObject.rotation.set(x, y, z);
-		renderer.render(scene, camera);
-	}
-	setInterval(move, 1);
+	//var i = 0;
+	//var j=0;
+	//var move = function () {
+	//	if(i==361){
+	//		i=0;
+	//		j++;
+	//	}
+	//	var angle = Math.PI / 180 * i++;
+	//	if(j==3){
+	//		j=0;
+	//	}
+	//	if(j==0){
+	//		x=angle;y=0,z=0;
+	//	}
+	//	if(j==1){
+	//		x=0;y=angle,z=0;
+	//	}
+	//	if(j==2){
+	//		x=0;y=0,z=angle;
+	//	}
+	//	displayObject.rotation.set(x, y, z);
+	//	renderer.render(scene, camera);
+	//}
+	//setInterval(move, 1);
 });
 
 function initThree() {

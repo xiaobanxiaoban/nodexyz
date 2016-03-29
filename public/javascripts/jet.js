@@ -36,7 +36,7 @@ $(function () {
 		displayObject.rotation.set(x, y, z);
 		renderer.render(scene, camera);
 	}
-	setInterval(move, 3);
+	setInterval(move, 1);
 });
 
 function initThree() {

@@ -17,6 +17,7 @@
 		"websocket": "*",
 		"johnny-five": "*",
 		"raspi-io": "*",
+	  "requirejs": "~2.1.15",
 		"nodejs-websocket": "*"
 	},
 	"repository": {
